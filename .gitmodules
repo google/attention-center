@@ -1,0 +1,4 @@
+[submodule "libjxl"]
+	path = libjxl
+	url = git@github.com:libjxl/libjxl.git
+	ignore = dirty
