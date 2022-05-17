@@ -10,6 +10,8 @@ This repository contains
 
 ## How to use
 
+Make sure you have python and tensorflow installed.
+
 1. Clone it from GitHub including the submodules
 2. Build libjxl, for example by following the [instructions](https://github.com/libjxl/libjxl/blob/main/README.md) given in the the [libjxl repo](https://github.com/libjxl/libjxl).
 3. run the `encode_with_centers.py` script.
@@ -18,7 +20,7 @@ Here `${INPUT_IMAGE_DIR}` contains images that can be opened with the [Python Im
 
 ``` shell
 git clone https://github.com/google/attention-center --recursive --shallow-submodules
-cd libjxl
+cd attention-center/libjxl
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF ..
@@ -43,7 +45,29 @@ An example for using `--` would be
 ```shell
 python encode_with_centers.py --lite_model_file=./model/center.tflite   --image_dir=/tmp/images --output_dir=/tmp/out/ -- -distance 1.1
 ```
-Here the we pass the flag `--distance 1.1` two `cjxl_ng`.
+Here the we pass the flag `--distance 1.1` to `cjxl_ng`.
 
 The flags and arguments for `--center_x`, `--center_y` and `--group-order 1` are automatically injected.
+
+## Example attention center calculations
+
+Here we show with an example image, where the calculated attention center of an
+image is computed. Running
+
+```shell
+python encode_with_centers.py --lite_model_file=./model/center.tflite --image_dir=./assets --dry_run
+```
+
+gives the following verbose output:
+```shell
+libjxl/build/tools/cjxl_ng -center_x 522 -center_y 1143 assets/white_eyes_bee.jpg white_eyes_bees.jpg
+```
+
+
+This tells ous that the computed attention center is at pixel coordinates
+(522, 1143). We mark the attention center with a red dot and compare it with the original image.
+
+![original image](./assets/white_eyes_bee.jpg)
+
+![image with attention center as red dot](./assets/white_eyes_bee_with_red_attention_center.jpg)
 

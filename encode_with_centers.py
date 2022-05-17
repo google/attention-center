@@ -251,26 +251,30 @@ def main(argv_for_encoder):
     image_dir = pathlib.Path(_IMAGE_DIR.value)
     lite_model_file = _LITE_MODEL_FILE.value
     model_input_image_shape = _MODEL_IMAGE_SHAPE
-    output_dir = pathlib.Path(_OUTPUT_DIR.value)
-    output_dir.mkdir(parents=True,  exist_ok=True)
     encoder = pathlib.Path(_ENCODER.value)
 
     # check if the binary for encoding exists
-    if not _DRY_RUN:
+    if not _DRY_RUN.value:
         if not encoder.exists:
             logging.error(
                 f'Can\'t find binary for encoding: {str(encoder)}. Consider'
                 'building djxl_ng by following the instructions in'
                 './libjxl/README.md or point to an encoder binary with'
                 'the \'--encoder\' flag')
+        if _OUTPUT_DIR.value is None:
+            logging.error(
+                'No output directory given, consider running with the flag'
+                '`--dry-run` if you do not intent to write files.'
+            )
 
+    if not _DRY_RUN.value:
+        output_dir = pathlib.Path(_OUTPUT_DIR.value)
+        output_dir.mkdir(parents=True,  exist_ok=True)
     # load the tflite model
     interpreter = load_tflite_model(lite_model_file)
 
     for filename in sorted(image_dir.iterdir()):
-        image_file = image_dir.joinpath(filename)
-
-        im = read_one_image(image_file)
+        im = read_one_image(filename)
         image_tensor = tf.constant(np.expand_dims(im, axis=0),
                                    dtype=tf.float32)
         resized_image_tensor = tf.image.resize_with_pad(
@@ -287,12 +291,14 @@ def main(argv_for_encoder):
         center_flags = [str(arg) for pair in zip(
             ('-center_x', '-center_y'), predicted_center) for arg in pair]
 
-        encoded_image = output_dir.joinpath(
-            f'{filename.name}.{_NEW_SUFFIX.value}')
+        encoded_image = (f'{filename.name}'
+                         if _DRY_RUN.value
+                         else output_dir.joinpath(
+                             f'{filename.name}.{_NEW_SUFFIX.value}'))
 
         encoder_command = [encoder, *center_flags,
                            *additional_encoder_flags,
-                           image_file, encoded_image]
+                           filename, encoded_image]
 
         if _VERBOSE.value or True:
             print(' '.join(map(str, encoder_command)))
