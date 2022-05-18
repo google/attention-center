@@ -1,8 +1,8 @@
 # Attention center
 
 This repository contains
- - a [TensorFlow Lite](https://www.tensorflow.org/lite) model to that can be used to prediect the attention center of an image, i.e. the area where the most salient parts of an image lie.
- - a python script that can be used to batch encode images using the attention centers. This can be used with the submodule [libjxl](firschinghttps://github.com/libjxl/libjxl) in order to create JPEG XL images such that decoing the image will start from the attention center determinend by the model.
+ - a [TensorFlow Lite](https://www.tensorflow.org/lite) model to that can be used to predict the attention center of an image, i.e. the area where the most salient parts of an image lie.
+ - a python script that can be used to batch encode images using the attention centers. This can be used with the submodule [libjxl](firschinghttps://github.com/libjxl/libjxl) in order to create JPEG XL images such that decoding the image will start from the attention center determined by the model.
 
  [Using Saliency in progressive JPEG XL images](https://opensource.googleblog.com/2021/09/using-saliency-in-progressive-jpeg-xl-images.html) is a blog post about this open source project.
 
@@ -39,19 +39,19 @@ There are the following flags:
   --new_suffix: File extension of the compressed file.
     (default: 'jxl')
   --output_dir: Filename of a test image.
-  --: everyting after will be handed to the encoder
+  --: everything after will be handed to the encoder
   ```
 An example for using `--` would be
 ```shell
 python encode_with_centers.py --lite_model_file=./model/center.tflite   --image_dir=/tmp/images --output_dir=/tmp/out/ -- -distance 1.1
 ```
-Here the we pass the flag `--distance 1.1` to `cjxl_ng`.
+Here we pass the flag `--distance 1.1` to `cjxl_ng`.
 
 The flags and arguments for `--center_x`, `--center_y` and `--group-order 1` are automatically injected.
 
 ## Example attention center calculations
 
-Here we show with an example image, where the calculated attention center of an
+Here we show an example image, where the calculated attention center of an
 image is computed. Running
 
 ```shell
@@ -64,10 +64,9 @@ libjxl/build/tools/cjxl_ng -center_x 522 -center_y 1143 assets/white_eyes_bee.jp
 ```
 
 
-This tells ous that the computed attention center is at pixel coordinates
+This tells us that the computed attention center is at pixel coordinates
 (522, 1143). We mark the attention center with a red dot and compare it with the original image.
 
 ![original image](./assets/white_eyes_bee.jpg)
 
 ![image with attention center as red dot](./assets/white_eyes_bee_with_red_attention_center.jpg)
-
