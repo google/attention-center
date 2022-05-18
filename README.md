@@ -67,15 +67,15 @@ libjxl/build/tools/cjxl_ng -center_x 522 -center_y 1143 assets/white_eyes_bee.jp
 This tells us that the computed attention center is at pixel coordinates
 (522, 1143). We mark the attention center with a red dot and compare it with the original image.
 
-|original|attention center marked in red|
-:---:|:---:
-![original image](./assets/white_eyes_bee.jpg)|![image with attention center as red dot](./assets/white_eyes_bee_with_red_attention_center.jpg)
-<style>
-table:nth-of-type(1) {
-    display:table;
-    width:100%;
-}
-table:nth-of-type(1) th:nth-of-type(2) {
-    width:50%;
-}
-</style>
+<table>
+<tr>
+<td align="center" style="width:50%">original image</td>
+<td align="center" style="width:50%">attention center marked with red dot</td>
+</tr>
+<tbody>
+<tr>
+<td align="center"><img src="assets/white_eyes_bee.jpg" alt="original image" style="max-width: 100%;"></td>
+<td align="center"><img src="assets/white_eyes_bee_with_red_attention_center.jpg" alt="image with attention center as red dot" style="max-width: 100%;"></td>
+</tr>
+</tbody>
+</table>
