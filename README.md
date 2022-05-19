@@ -72,3 +72,4 @@ This tells us that the computed attention center is at pixel coordinates
 <img src="assets/white_eyes_bee_with_red_attention_center.jpg" alt="image with attention center as red dot" style="width: 48%;">
 </p>
 
+Authors: [Moritz Firsching](https://github.com/mo271) and [Junfeng He](https://github.com/jfh1980)
