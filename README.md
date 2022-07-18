@@ -33,7 +33,7 @@ python encode_with_centers.py --lite_model_file=./model/center.tflite \
 There are the following flags:
 ```shell
   --encoder: Location of th encoder binary.
-    (default: './libjxl/build/tools/cjxl_ng')
+    (default: './libjxl/build/tools/cjxl')
   --image_dir: Filename of a test image.
   --lite_model_file: Path to the corresponding TFLite model.
   --new_suffix: File extension of the compressed file.
@@ -45,7 +45,7 @@ An example for using `--` would be
 ```shell
 python encode_with_centers.py --lite_model_file=./model/center.tflite   --image_dir=/tmp/images --output_dir=/tmp/out/ -- -distance 1.1
 ```
-Here we pass the flag `--distance 1.1` to `cjxl_ng`.
+Here we pass the flag `--distance 1.1` to `cjxl`.
 
 The flags and arguments for `--center_x`, `--center_y` and `--group-order 1` are automatically injected.
 
