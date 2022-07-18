@@ -37,15 +37,15 @@ import tensorflow as tf
 _LITE_MODEL_FILE = flags.DEFINE_string(
     'lite_model_file', None, 'Path to the corresponding TFLite model.')
 _IMAGE_DIR = flags.DEFINE_string('image_dir', None,
-                                 'Filename of a test image.')
+                                 'Name of the directory of input images.')
 _OUTPUT_DIR = flags.DEFINE_string('output_dir', None,
-                                  'Filename of a test image.')
+                                  'Name of the directory of the output images.')
 _ENCODER = flags.DEFINE_string('encoder', './libjxl/build/tools/cjxl_ng',
                                'Location of th encoder binary.')
 _NEW_SUFFIX = flags.DEFINE_string(
     'new_suffix', 'jxl', 'File extension of the compressed file.')
 _DRY_RUN = flags.DEFINE_bool(
-    'dry_run', False, 'If true, only do a dry run, does not write files.')
+    'dry_run', False, 'If true, only do a dry run, do not write files.')
 _VERBOSE = flags.DEFINE_bool(
     'verbose', True, 'If true, prints info about the commands executed.')
 FLAGS = flags.FLAGS
@@ -288,15 +288,17 @@ def main(argv_for_encoder):
             pred_from_tflite, model_input_image_shape,
             (im.shape[0], im.shape[1]))
 
+        group_order_flag = ['--group_order', '1']
+
         center_flags = [str(arg) for pair in zip(
-            ('-center_x', '-center_y'), predicted_center) for arg in pair]
+            ('--center_x', '--center_y'), predicted_center) for arg in pair]
 
         encoded_image = (f'{filename.name}'
                          if _DRY_RUN.value
                          else output_dir.joinpath(
                              f'{filename.name}.{_NEW_SUFFIX.value}'))
 
-        encoder_command = [encoder, *center_flags,
+        encoder_command = [encoder, *group_order_flag, *center_flags,
                            *additional_encoder_flags,
                            filename, encoded_image]
 
