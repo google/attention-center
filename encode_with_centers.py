@@ -40,7 +40,7 @@ _IMAGE_DIR = flags.DEFINE_string('image_dir', None,
                                  'Name of the directory of input images.')
 _OUTPUT_DIR = flags.DEFINE_string('output_dir', None,
                                   'Name of the directory of the output images.')
-_ENCODER = flags.DEFINE_string('encoder', './libjxl/build/tools/cjxl_ng',
+_ENCODER = flags.DEFINE_string('encoder', './libjxl/build/tools/cjxl',
                                'Location of th encoder binary.')
 _NEW_SUFFIX = flags.DEFINE_string(
     'new_suffix', 'jxl', 'File extension of the compressed file.')
@@ -255,15 +255,15 @@ def main(argv_for_encoder):
 
     # check if the binary for encoding exists
     if not _DRY_RUN.value:
-        if not encoder.exists:
+        if not encoder.exists():
             logging.error(
-                f'Can\'t find binary for encoding: {str(encoder)}. Consider'
-                'building djxl_ng by following the instructions in'
-                './libjxl/README.md or point to an encoder binary with'
+                f'Can\'t find binary for encoding: {str(encoder)}. Consider '
+                'building cjxl by following the instructions in '
+                './libjxl/README.md or point to an encoder binary with '
                 'the \'--encoder\' flag')
         if _OUTPUT_DIR.value is None:
             logging.error(
-                'No output directory given, consider running with the flag'
+                'No output directory given, consider running with the flag '
                 '`--dry-run` if you do not intent to write files.'
             )
 
