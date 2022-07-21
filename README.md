@@ -31,23 +31,27 @@ python encode_with_centers.py --lite_model_file=./model/center.tflite \
 ```
 
 There are the following flags:
-```shell
+```
+  --[no]dry_run: If true, only do a dry run, do not write files.
+    (default: 'false')
   --encoder: Location of th encoder binary.
+  --image_dir: Name of the directory of input images.
     (default: './libjxl/build/tools/cjxl')
-  --image_dir: Filename of a test image.
   --lite_model_file: Path to the corresponding TFLite model.
   --new_suffix: File extension of the compressed file.
     (default: 'jxl')
-  --output_dir: Filename of a test image.
-  --: everything after will be handed to the encoder
+  --output_dir: Name of the directory of the output images.
+  --[no]verbose: If true, prints info about the commands executed.
+    (default: 'true')
   ```
+
 An example for using `--` would be
 ```shell
 python encode_with_centers.py --lite_model_file=./model/center.tflite   --image_dir=/tmp/images --output_dir=/tmp/out/ -- -distance 1.1
 ```
 Here we pass the flag `--distance 1.1` to `cjxl`.
 
-The flags and arguments for `--center_x`, `--center_y` and `--group-order 1` are automatically injected.
+The flags and arguments for `--center_x`, `--center_y` and `--group_order` are automatically injected.
 
 ## Example attention center calculations
 
