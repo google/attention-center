@@ -4,10 +4,9 @@
 
 layout: default
 ---
-<input type="file" /><br />
-
+<input type="file" />
 <form action="#">
-      <label for="lang">Image</label>
+      <label for="lang">or select demo image</label>
       <select name="images" id="image_selection">
         <option value="harpsichord.jxl">Harpsichord</option>
         <option value="two_chestnuts.jxl">Two Chestnuts</option>
@@ -19,8 +18,8 @@ layout: default
 </form>
 
 <div class="slidecontainer">
-<input id="percentRange" type="range" min="0" max="1000" value="333">
-</div><p id="demo"></p>
+<input id="percentRange" type="range" min="0" max="1000" value="400">
+</div><p>When <span id="demo"></span> of the bytes of the image are loaded the image will look like this:</p>
 <br>
 
 <img id="partial_image"/>
