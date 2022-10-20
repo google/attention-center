@@ -18,11 +18,11 @@ layout: default
 </form>
 
 <div class="slidecontainer">
-<input id="percentRange" type="range" min="0" max="1000" value="400">
+<input id="percentRange" type="range" min="10" max="1000" value="400">
 </div><p>When <span id="demo"></span> of the bytes of the image are loaded the image will look like this:</p>
 <br>
 
-<img id="partial_image"/>
+<img id="partial_image" alt="If you can't see an image here, you might need to enable decoding of JPEG XL files via a flag in your browser. If you use Chrome, go to chrome://flags/ and search for 'jxl'."/>
 
 <script>
 const slider = document.getElementById("percentRange");
