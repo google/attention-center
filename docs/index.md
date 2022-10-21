@@ -18,7 +18,7 @@ layout: default
 </form>
 
 <div class="slidecontainer">
-<input id="percentRange" type="range" min="10" max="1000" value="400">
+<input id="percentRange" type="range" min="10" max="1000" value="500">
 </div><p>When <span id="demo"></span> of the bytes of the image are loaded the image will look like this:</p>
 <br>
 
