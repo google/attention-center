@@ -23,7 +23,7 @@ layout: default
 </form>
 
 <div class="slidecontainer">
-<input id="percentRange" type="range" min="10" max="1000" value="250">
+<input id="percentRange" type="range" min="10" max="1000" value="300">
 </div><p>When <span id="demo"></span> of the bytes of the image are loaded the image will look like this:</p>
 
 <img id="partial_image" alt="For JPEG XL files, this demo currently only works with Chromium derived browsers. If you can't see an image here, you might need to enable decoding of JPEG XL files via a flag in Chrome: go to chrome://flags/ and search for 'jxl'."/>
