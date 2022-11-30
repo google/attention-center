@@ -6,6 +6,8 @@
     width: 100%;
 }
 
+img { max-height: 90vh; }
+
 $content-width: 1200px;
 
 @import "minima";

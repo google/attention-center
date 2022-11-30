@@ -8,11 +8,16 @@ layout: default
 <form action="#">
       <label for="lang">or select demo image</label>
       <select name="images" id="image_selection">
-        <option value="chestnut_water.jxl">Chestnut water</option>
-        <option value="slug.jxl">Slug</option>
-        <option value="tree.jxl">Tree</option>
-        <option value="petrus.jxl">Petrus</option>
-        <option value="watch.jxl">Watch</option>
+        <option value="chestnut_water_small.jxl">Chestnut water</option>
+        <option value="chestnut_water.jxl">Chestnut water (large)</option>
+        <option value="slug_small.jxl">Slug</option>
+        <option value="slug.jxl">Slug (large)</option>
+        <option value="tree_small.jxl">Tree</option>
+        <option value="tree.jxl">Tree (large)</option>
+        <option value="petrus_small.jxl">Petrus</option>
+        <option value="petrus.jxl">Petrus (large)</option>
+        <option value="watch_small.jxl">Watch</option>
+        <option value="watch.jxl">Watch (large)</option>
         <option id="custom_option" style="display:none" value="">custom file</option>
       </select>
 </form>
@@ -20,9 +25,8 @@ layout: default
 <div class="slidecontainer">
 <input id="percentRange" type="range" min="10" max="1000" value="500">
 </div><p>When <span id="demo"></span> of the bytes of the image are loaded the image will look like this:</p>
-<br>
 
-<img id="partial_image" alt="If you can't see an image here, you might need to enable decoding of JPEG XL files via a flag in your browser. If you use Chrome, go to chrome://flags/ and search for 'jxl'."/>
+<img id="partial_image" alt="For JPEG XL files, this demo currently only works with Chromium derived browsers like. If you can't see an image here, you might need to enable decoding of JPEG XL files via a flag in Chrome: go to chrome://flags/ and search for 'jxl'."/>
 
 <script>
 const slider = document.getElementById("percentRange");
