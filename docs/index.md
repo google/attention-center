@@ -23,10 +23,10 @@ layout: default
 </form>
 
 <div class="slidecontainer">
-<input id="percentRange" type="range" min="10" max="1000" value="500">
+<input id="percentRange" type="range" min="10" max="1000" value="250">
 </div><p>When <span id="demo"></span> of the bytes of the image are loaded the image will look like this:</p>
 
-<img id="partial_image" alt="For JPEG XL files, this demo currently only works with Chromium derived browsers like. If you can't see an image here, you might need to enable decoding of JPEG XL files via a flag in Chrome: go to chrome://flags/ and search for 'jxl'."/>
+<img id="partial_image" alt="For JPEG XL files, this demo currently only works with Chromium derived browsers. If you can't see an image here, you might need to enable decoding of JPEG XL files via a flag in Chrome: go to chrome://flags/ and search for 'jxl'."/>
 
 <script>
 const slider = document.getElementById("percentRange");
@@ -45,7 +45,7 @@ function updateImageSource() {
 
   xhr.addEventListener("load", () => {
     const arrayBufferView = new Uint8Array( xhr.response );
-    const partialImage = new Blob( [ arrayBufferView.slice(0, arrayBufferView.length *slider.value/1000 ) ], { type: "image/jxl" } );
+    const partialImage = new Blob( [ arrayBufferView.slice(0, arrayBufferView.length * slider.value/1000 ) ], { type: "image/jxl" } );
     const urlCreator = window.URL || window.webkitURL;
     const img = document.querySelector( "#partial_image" );
     img.src = urlCreator.createObjectURL( partialImage );
