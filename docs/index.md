@@ -8,11 +8,11 @@ layout: default
 <form action="#">
       <label for="lang">or select demo image</label>
       <select name="images" id="image_selection">
-        <option value="harpsichord.jxl">Harpsichord</option>
-        <option value="two_chestnuts.jxl">Two Chestnuts</option>
-        <option value="slug.jxl">Slug</option>
-        <option value="petrus.jxl">Petrus</option>
         <option value="chestnut_water.jxl">Chestnut water</option>
+        <option value="slug.jxl">Slug</option>
+        <option value="tree.jxl">Tree</option>
+        <option value="petrus.jxl">Petrus</option>
+        <option value="watch.jxl">Watch</option>
         <option id="custom_option" style="display:none" value="">custom file</option>
       </select>
 </form>
