@@ -11,7 +11,7 @@ layout: default
         <option value="chestnut_water_small.jxl">Chestnut water</option>
         <option value="chestnut_water.jxl">Chestnut water (large)</option>
         <option value="slug_small.jxl">Slug</option>
-        <option value="slug.jxl">Slug (large)</option>
+        <option value="slug.jxl" selected="selected">Slug (large)</option>
         <option value="tree_small.jxl">Tree</option>
         <option value="tree.jxl">Tree (large)</option>
         <option value="petrus_small.jxl">Petrus</option>
