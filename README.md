@@ -6,7 +6,7 @@ This repository contains
 
  [Using Saliency in progressive JPEG XL images](https://opensource.googleblog.com/2021/09/using-saliency-in-progressive-jpeg-xl-images.html) is a blog post from 2021 about progressive JPEG XL images.
 
- [Open sourcing the attention center model](https://opensource.googleblog.com/2022/11/open-sourcing-attention-center-model.html) is a blog post from 2022 about this open source project.
+ [Open sourcing the attention center model](https://opensource.googleblog.com/2022/12/open-sourcing-attention-center-model.html) is a blog post from 2022 about this open source project.
 
  For the training of the model [center.tflite](./model/center.tflite) has been trained with images from the [Common objects in context](https://cocodataset.org/#home) annotated with saliency from the [salicon dataset](http://salicon.net/).
 
