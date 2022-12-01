@@ -4,7 +4,9 @@ This repository contains
  - a [TensorFlow Lite](https://www.tensorflow.org/lite) model to that can be used to predict the attention center of an image, i.e. the area where the most salient parts of an image lie.
  - a python script that can be used to batch encode images using the attention centers. This can be used with the submodule [libjxl](firschinghttps://github.com/libjxl/libjxl) in order to create JPEG XL images such that decoding the image will start from the attention center determined by the model.
 
- [Using Saliency in progressive JPEG XL images](https://opensource.googleblog.com/2021/09/using-saliency-in-progressive-jpeg-xl-images.html) is a blog post about this open source project.
+ [Using Saliency in progressive JPEG XL images](https://opensource.googleblog.com/2021/09/using-saliency-in-progressive-jpeg-xl-images.html) is a blog post from 2021 about progressive JPEG XL images.
+
+ [Open sourcing the attention center model](https://opensource.googleblog.com/2022/11/open-sourcing-attention-center-model.html) is a blog post from 2022 about this open source project.
 
  For the training of the model [center.tflite](./model/center.tflite) has been trained with images from the [Common objects in context](https://cocodataset.org/#home) annotated with saliency from the [salicon dataset](http://salicon.net/).
 
@@ -75,5 +77,12 @@ This tells us that the computed attention center is at pixel coordinates
 <img src="assets/white_eyes_bee.jpg" alt="original image" style="width: 48%;">
 <img src="assets/white_eyes_bee_with_red_attention_center.jpg" alt="image with attention center as red dot" style="width: 48%;">
 </p>
+
+## Progressive JPEG XL demo in Chrome
+
+Check out how some JPEG XL images encoded with the help of the attention center model look like at different stages when loaded with Chrome:
+[google.github.io/attention-center](https://google.github.io/attention-center)
+
+-----
 
 Authors: [Moritz Firsching](https://github.com/mo271) and [Junfeng He](https://github.com/jfh1980)
